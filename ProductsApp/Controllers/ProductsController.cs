@@ -31,5 +31,16 @@ namespace ProductsApp.Controllers
             }
             return Ok(product);
         }
+
+        public IHttpActionResult GetFirstProduct()
+        {
+            var product = products.FirstOrDefault((p) => p.Id == 1);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
+        }
+
     }
 }
